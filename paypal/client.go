@@ -93,6 +93,7 @@ func (c *Client) doPayPalPost(ctx context.Context, bm gopay.BodyMap, path string
 	}
 	httpClient.Header.Add(HeaderAuthorization, authHeader)
 	httpClient.Header.Add("Accept", "*/*")
+	httpClient.Header.Add("PayPal-Request-Id", "ccinn1234568933")
 	res, bs, err = httpClient.Type(xhttp.TypeJSON).Post(url).SendBodyMap(bm).EndBytes(ctx)
 	if err != nil {
 		return nil, nil, err
